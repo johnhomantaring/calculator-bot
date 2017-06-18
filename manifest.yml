@@ -1,0 +1,15 @@
+---
+declared-services:
+  Conversation-5v:
+    label: conversation
+    plan: free
+applications:
+- name: calculator-bot
+  command: npm start
+  path: .
+  memory: 512M
+  instances: 1
+  services:
+  - Conversation-Calculator
+  env:
+    NPM_CONFIG_PRODUCTION: false
