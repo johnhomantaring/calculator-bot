@@ -25,21 +25,20 @@ var app = express();
 // Bootstrap application settings
 app.use(express.static('./public')); // load UI from public folder
 app.use(bodyParser.json());
-var workspace = '2aca8b40-c85d-43fd-a013-c4cbc0142b4b';
+//var workspace = '2aca8b40-c85d-43fd-a013-c4cbc0142b4b';
 // Create the service wrapper
 var conversation = new Conversation({
   // If unspecified here, the CONVERSATION_USERNAME and CONVERSATION_PASSWORD env properties will be checked
   // After that, the SDK will fall back to the bluemix-provided VCAP_SERVICES environment property
-   username: 'f73ea4ad-8621-4ae1-87eb-3cab886f46b5',
-   password: 'soELvOZZKhEd',
-  url: 'https://gateway.watsonplatform.net/conversation/api',
+   //username: 'f73ea4ad-8621-4ae1-87eb-3cab886f46b5',
+   //password: 'soELvOZZKhEd',
+  //url: 'https://gateway.watsonplatform.net/conversation/api',
   version_date: Conversation.VERSION_DATE_2017_04_21
 });
 
 // Endpoint to be call from the client side
 app.post('/api/message', function(req, res) {
-  //var workspace = process.env.WORKSPACE_ID || '06051e21-3033-4e1d-aff6-955531db7b3e';
-
+  var workspace = process.env.WORKSPACE_ID || '<workspace-id>';
   if (!workspace || workspace === '<workspace-id>') {
     return res.json({
       'output': {
@@ -130,6 +129,7 @@ var numbersArr = [];
   }
 
 //send result back to conversation service
+var workspace = process.env.WORKSPACE_ID || '<workspace-id>';
 var payload = {
     workspace_id: workspace,
     context: {
