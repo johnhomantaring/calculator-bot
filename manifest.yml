@@ -1,6 +1,6 @@
 ---
 declared-services:
-  Conversation:
+  Conversation-5v:
     label: conversation
     plan: free
 applications:
