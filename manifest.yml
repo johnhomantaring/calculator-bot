@@ -1,10 +1,10 @@
 ---
 declared-services:
-  Conversation-5v:
+  Conversation:
     label: conversation
     plan: free
 applications:
-- name: calculator-bot
+- name: conv-201-001-calc
   command: npm start
   path: .
   memory: 512M
